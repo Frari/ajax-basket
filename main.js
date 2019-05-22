@@ -5,6 +5,8 @@
 // in modo da interrogare l'API nel modo corretto e stilare le card.
 // Poi aggiungete la richiesta del numero dei giocatori all'utente
 $(document).ready(function(){
+
+// effettuo chiamata ajax per richiedere array oggetti giocatori
   $.ajax({
     url:'https://www.boolean.careers/api/array/basket?',
     metod:'GET',
@@ -13,10 +15,26 @@ $(document).ready(function(){
     },
     success: function(data){
       console.log(data);
-      // var schede = data.response;
 
-      for(i=0; i<data.response.length; i++){
-        $('.container').append(data.response);
+// creo ciclo per stampare a schermo tutte le proprietà dei giocatori
+      for(var i=0; i<data.response.length; i++){
+        $('.container').append(data.response[i].playerCode);
+        $('.container').append(data.response[i].rebounds);
+        $('.container').append(data.response[i].fouls);
+        $('.container').append(data.response[i].twoPoints);
+        $('.container').append(data.response[i].threePoints);
+
+      };
+// creo un template per visualizzare le schede dei giocatori
+      for(var i=0; i<data.response.length; i++){
+        var template_giocatore=$('.template_player').html();
+        var template_function = Handlebars.compile(template_giocatore);
+        var context{
+
+        }
+        var html= template(context);
+        $('.container').append(html);
+
       };
 
     },
