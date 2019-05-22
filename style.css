@@ -3,8 +3,31 @@
   padding: 0;
   box-sizing: border-box;
 }
+.box{
+  background-image: url(img/sfondo2.jpg);
+  background-size: contain;
+}
 .container{
-  width: 400px;
-  height: 400px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.scheda_player{
   border: 1px solid black;
+  padding: 20px;
+  background-image: url(img/sfondo.jpg);
+  background-size: cover;
+  box-shadow: 20px 20px 50px grey;
+}
+.scheda_player p{
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}
+.scheda_player p span{
+  color: black;
+  font-weight: bold
 }
